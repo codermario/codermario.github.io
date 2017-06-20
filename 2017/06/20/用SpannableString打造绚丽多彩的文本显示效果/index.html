@@ -93,12 +93,12 @@
 
 
 
-<meta name="description" content="TeXtView大家应该都不陌生，文本展示控件嘛！ 就用TextView显示普普通通的文本，OK，很简单，Android入门的都会，没入门的在门缝外看两眼也都会，哈哈，开玩笑。那要是设计在开发需求中要求类似微信聊天表情一样在TextView中插入表情图片呢？ 有的小伙伴就会说啦，“TextView添加图片我会啊，不就是drawableLeft，drawableRight嘛！” 嗯 ~ 也行，算是一">
+<meta name="description" content="引语TeXtView大家应该都不陌生，文本展示控件嘛！ 就用TextView显示普普通通的文本，OK，很简单，Android入门的都会，没入门的在门缝外看两眼也都会，哈哈，开玩笑。那要是设计在开发需求中要求类似微信聊天表情一样在TextView中插入表情图片呢？ 有的小伙伴就会说啦，“TextView添加图片我会啊，不就是drawableLeft，drawableRight嘛！” 嗯 ~ 也行，算">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用SpannableString打造绚丽多彩的文本显示效果">
 <meta property="og:url" content="http://yoursite.com/2017/06/20/用SpannableString打造绚丽多彩的文本显示效果/index.html">
 <meta property="og:site_name" content="码农小阿飞的博客">
-<meta property="og:description" content="TeXtView大家应该都不陌生，文本展示控件嘛！ 就用TextView显示普普通通的文本，OK，很简单，Android入门的都会，没入门的在门缝外看两眼也都会，哈哈，开玩笑。那要是设计在开发需求中要求类似微信聊天表情一样在TextView中插入表情图片呢？ 有的小伙伴就会说啦，“TextView添加图片我会啊，不就是drawableLeft，drawableRight嘛！” 嗯 ~ 也行，算是一">
+<meta property="og:description" content="引语TeXtView大家应该都不陌生，文本展示控件嘛！ 就用TextView显示普普通通的文本，OK，很简单，Android入门的都会，没入门的在门缝外看两眼也都会，哈哈，开玩笑。那要是设计在开发需求中要求类似微信聊天表情一样在TextView中插入表情图片呢？ 有的小伙伴就会说啦，“TextView添加图片我会啊，不就是drawableLeft，drawableRight嘛！” 嗯 ~ 也行，算">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-d9adfe133390ca65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-e8f7a8f3b6483196.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-c4c4cd954e8ef69a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -111,10 +111,10 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-355ef15003cec823.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-9382c831af415b11.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-63124a847b6baacf.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2017-06-20T03:43:26.050Z">
+<meta property="og:updated_time" content="2017-06-20T07:34:36.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用SpannableString打造绚丽多彩的文本显示效果">
-<meta name="twitter:description" content="TeXtView大家应该都不陌生，文本展示控件嘛！ 就用TextView显示普普通通的文本，OK，很简单，Android入门的都会，没入门的在门缝外看两眼也都会，哈哈，开玩笑。那要是设计在开发需求中要求类似微信聊天表情一样在TextView中插入表情图片呢？ 有的小伙伴就会说啦，“TextView添加图片我会啊，不就是drawableLeft，drawableRight嘛！” 嗯 ~ 也行，算是一">
+<meta name="twitter:description" content="引语TeXtView大家应该都不陌生，文本展示控件嘛！ 就用TextView显示普普通通的文本，OK，很简单，Android入门的都会，没入门的在门缝外看两眼也都会，哈哈，开玩笑。那要是设计在开发需求中要求类似微信聊天表情一样在TextView中插入表情图片呢？ 有的小伙伴就会说啦，“TextView添加图片我会啊，不就是drawableLeft，drawableRight嘛！” 嗯 ~ 也行，算">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/430632-d9adfe133390ca65.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -155,6 +155,16 @@
 
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dadda70e9b159ddf7427ab3beb6ac6dc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -220,22 +230,32 @@
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bars"></i> <br />
             
             归档
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            标签
+            关于
           </a>
         </li>
       
@@ -308,6 +328,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -332,10 +374,9 @@
       
 
       
-        <p>TeXtView大家应该都不陌生，文本展示控件嘛！ 就用TextView显示普普通通的文本，OK，很简单，Android入门的都会，没入门的在门缝外看两眼也都会，哈哈，开玩笑。那要是设计在开发需求中要求类似微信聊天表情一样在TextView中插入表情图片呢？ 有的小伙伴就会说啦，“TextView添加图片我会啊，不就是<code>drawableLeft</code>，<code>drawableRight</code>嘛！” 嗯 ~ 也行，算是一种方法，可这有一个限制，首先，图片只能在TextView的两端，其次，两端都只能设置一张图片。要是图片要在文本中间呢？无能为力了吧，要是你会使用SpannableString，这个问题也就不难解决了，简直是Just So So。</p>
+        <h4 id="引语"><a href="#引语" class="headerlink" title="引语"></a>引语</h4><p>TeXtView大家应该都不陌生，文本展示控件嘛！ 就用TextView显示普普通通的文本，OK，很简单，Android入门的都会，没入门的在门缝外看两眼也都会，哈哈，开玩笑。那要是设计在开发需求中要求类似微信聊天表情一样在TextView中插入表情图片呢？ 有的小伙伴就会说啦，“TextView添加图片我会啊，不就是<code>drawableLeft</code>，<code>drawableRight</code>嘛！” 嗯 ~ 也行，算是一种方法，可这有一个限制，首先，图片只能在TextView的两端，其次，两端都只能设置一张图片。要是图片要在文本中间呢？无能为力了吧，要是你会使用SpannableString，这个问题也就不难解决了，简直是Just So So。</p>
 <p>所以，不论你是否正在经受以上问题的困扰，亦或是还没有经历到，请驻足仔细耐心的看完这篇简短的文章。不仅能够轻松实现以上设计需求，更能收获其他各种炫酷的效果，也许就能帮助你解决现在你所困扰的问题。</p>
-<p><br><br><br></p>
-<p>SpannableString其实和String一样，都是一种字符串类型，同样TextView也可以直接设置SpannableString作为显示文本，不同的是SpannableString可以通过使用其方法setSpan方法实现字符串各种形式风格的显示,重要的是可以指定设置的区间，也就是为字符串指定下标区间内的子字符串设置格式。</p>
+<h5 id="首先我们先来了解SpannableString"><a href="#首先我们先来了解SpannableString" class="headerlink" title="首先我们先来了解SpannableString"></a>首先我们先来了解SpannableString</h5><p>SpannableString其实和String一样，都是一种字符串类型，同样TextView也可以直接设置SpannableString作为显示文本，不同的是SpannableString可以通过使用其方法setSpan方法实现字符串各种形式风格的显示,重要的是可以指定设置的区间，也就是为字符串指定下标区间内的子字符串设置格式。</p>
 <p>setSpan(Object what, int start, int end, int flags)方法需要用户输入四个参数，<code>what</code>表示设置的格式是什么，可以是前景色、背景色也可以是可点击的文本等等，<code>start</code>表示需要设置格式的子字符串的起始下标，同理<code>end</code>表示终了下标，<code>flags</code>属性就有意思了，共有四种属性：</p>
 <p><code>Spanned.SPAN_INCLUSIVE_EXCLUSIVE</code>  从起始下标到终了下标，包括起始下标<br><code>Spanned.SPAN_INCLUSIVE_INCLUSIVE</code>  从起始下标到终了下标，同时包括起始下标和终了下标<br><code>Spanned.SPAN_EXCLUSIVE_EXCLUSIVE</code>  从起始下标到终了下标，但都不包括起始下标和终了下标<br><code>Spanned.SPAN_EXCLUSIVE_INCLUSIVE</code>  从起始下标到终了下标，包括终了下标</p>
 <p>下面我们一一解读几种Span常用的格式:</p>
@@ -506,12 +547,8 @@ public void onClick(View widget) {
     }
 }
 </code></pre><p>除此之外，还有<code>MaskFilterSpan</code>可以实现模糊和浮雕效果，<code>RasterizerSpan</code>可以实现光栅效果，因为以上两个使用频率不高，而且效果也不是很明显，就不做详细说明，有兴趣的小伙伴不妨去试一试。</p>
-<p><br><br><br></p>
-<p>SpannableStringBuilder</p>
-<p>应该有不少开发的小伙伴知道StringBuilder，可以使用append()方法实现字符串拼接，非常方便。同样，SpannableString中也有SpannableStringBuilder，顾名思义，就是实现对，SpannableString的一个拼接效果，同样是append()方法，可以实现各种风格效果的SpannableString拼接，非常实用。</p>
-<p><br><br><br></p>
-<p>彩蛋</p>
-<p>看了这么多的效果是不是收货满满呢？最后我在附上一个个小小的彩蛋，小伙伴们可以开动脑经想一想是怎么实现的哦！ 要是有更好的创意，不妨在评论区留言跟大伙儿分享分享呢！</p>
+<h5 id="SpannableStringBuilder"><a href="#SpannableStringBuilder" class="headerlink" title="SpannableStringBuilder"></a>SpannableStringBuilder</h5><p>应该有不少开发的小伙伴知道StringBuilder，可以使用append()方法实现字符串拼接，非常方便。同样，SpannableString中也有SpannableStringBuilder，顾名思义，就是实现对，SpannableString的一个拼接效果，同样是append()方法，可以实现各种风格效果的SpannableString拼接，非常实用。</p>
+<h4 id="彩蛋"><a href="#彩蛋" class="headerlink" title="彩蛋"></a>彩蛋</h4><p>看了这么多的效果是不是收货满满呢？最后我在附上一个个小小的彩蛋，小伙伴们可以开动脑经想一想是怎么实现的哦！ 要是有更好的创意，不妨在评论区留言跟大伙儿分享分享呢！</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/430632-63124a847b6baacf.gif?imageMogr2/auto-orient/strip" alt=""></p>
 <p><a href="https://github.com/WuLiFei/SpannableStringDemo" target="_blank" rel="external">github下载地址-内含菜单实现代码</a></p>
 <blockquote>
@@ -608,8 +645,17 @@ public void onClick(View widget) {
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -623,13 +669,22 @@ public void onClick(View widget) {
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives/">
+              <a href="/archives">
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
           
 
           
@@ -639,6 +694,26 @@ public void onClick(View widget) {
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/codermario" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/6081421055/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
           
         </div>
 
@@ -653,6 +728,22 @@ public void onClick(View widget) {
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#引语"><span class="nav-number">1.</span> <span class="nav-text">引语</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#首先我们先来了解SpannableString"><span class="nav-number">1.1.</span> <span class="nav-text">首先我们先来了解SpannableString</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SpannableStringBuilder"><span class="nav-number">1.2.</span> <span class="nav-text">SpannableStringBuilder</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#彩蛋"><span class="nav-number">2.</span> <span class="nav-text">彩蛋</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -669,10 +760,10 @@ public void onClick(View widget) {
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2016 - 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-circle-o"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">CoderMario</span>
 </div>
