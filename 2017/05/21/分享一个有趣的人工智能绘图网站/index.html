@@ -1,0 +1,804 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="相信不少技术爱好者已经关注到，早些前，谷歌推出了一款线上绘图神器——AutoDraw。它可以一键把你粗糙的涂鸦变成一个精美的图案，而且AutoDraw基本不受设备的限制，不论是在手机、平板、电脑上都能顺畅运作。你只需用鼠标简单的绘出大致形状，AI便会猜你实际上画的是什么，列出可能结果清单，将你的图案变的更专业更好看，后续可以用其他工具修改成想要的画面，并且图片支持下载和分享。先来一个官方宣传视频：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分享一个有趣的人工智能绘图网站">
+<meta property="og:url" content="http://yoursite.com/2017/05/21/分享一个有趣的人工智能绘图网站/index.html">
+<meta property="og:site_name" content="码农小阿飞的博客">
+<meta property="og:description" content="相信不少技术爱好者已经关注到，早些前，谷歌推出了一款线上绘图神器——AutoDraw。它可以一键把你粗糙的涂鸦变成一个精美的图案，而且AutoDraw基本不受设备的限制，不论是在手机、平板、电脑上都能顺畅运作。你只需用鼠标简单的绘出大致形状，AI便会猜你实际上画的是什么，列出可能结果清单，将你的图案变的更专业更好看，后续可以用其他工具修改成想要的画面，并且图片支持下载和分享。先来一个官方宣传视频：">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-c4c00137259d956e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-a1e1d32f4b786bb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-dcb0f6c89c48c047.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-46258db562bbbab2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-42b51eaed4a05e04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-b96dfecdbb32ecfc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-ce04fabeb25c9a79.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-2c20a9204b1e1f31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-53822c50b8763301.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-811d6d5c5e664a32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-10f955a6d480f29d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-3267236cd3d48591.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-26a53c3521e4dc74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-8a9e9129f6d6d1bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-1f2bc0ec0d9f7700.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-06-20T07:53:02.961Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分享一个有趣的人工智能绘图网站">
+<meta name="twitter:description" content="相信不少技术爱好者已经关注到，早些前，谷歌推出了一款线上绘图神器——AutoDraw。它可以一键把你粗糙的涂鸦变成一个精美的图案，而且AutoDraw基本不受设备的限制，不论是在手机、平板、电脑上都能顺畅运作。你只需用鼠标简单的绘出大致形状，AI便会猜你实际上画的是什么，列出可能结果清单，将你的图案变的更专业更好看，后续可以用其他工具修改成想要的画面，并且图片支持下载和分享。先来一个官方宣传视频：">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/430632-c4c00137259d956e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/21/分享一个有趣的人工智能绘图网站/"/>
+
+
+
+
+
+  <title>分享一个有趣的人工智能绘图网站 | 码农小阿飞的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dadda70e9b159ddf7427ab3beb6ac6dc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">码农小阿飞的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bars"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/21/分享一个有趣的人工智能绘图网站/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoderMario">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码农小阿飞的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">分享一个有趣的人工智能绘图网站</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-21T16:25:58+08:00">
+                2017-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/other/" itemprop="url" rel="index">
+                    <span itemprop="name">other</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>相信不少技术爱好者已经关注到，早些前，谷歌推出了一款线上绘图神器——AutoDraw。它可以一键把你粗糙的涂鸦变成一个精美的图案，而且AutoDraw基本不受设备的限制，不论是在手机、平板、电脑上都能顺畅运作。你只需用鼠标简单的绘出大致形状，AI便会猜你实际上画的是什么，列出可能结果清单，将你的图案变的更专业更好看，后续可以用其他工具修改成想要的画面，并且图片支持下载和分享。先来一个官方宣传视频：<a href="http://v.youku.com/v_show/id_XMjcwMzY5MDA1Ng==.html" target="_blank" rel="external">AutoDraw官方宣传视频</a></p>
+<p>有没有迫不及待想要动手尝试一下？先别着急，先让我给你介绍一下这个神奇的网站：</p>
+<p>首先：打开官网 (<a href="https://www.autodraw.com/" target="_blank" rel="external">https://www.autodraw.com/</a>)<br><img src="http://upload-images.jianshu.io/upload_images/430632-c4c00137259d956e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>打开网站后会默认给定一个矩形的画图面板，当然可以在左侧菜单栏选择不同样式尺寸的面板：<br><img src="http://upload-images.jianshu.io/upload_images/430632-a1e1d32f4b786bb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>选中的尺寸也不是一成不变的，选中尺寸后我们还是能够拖动面板右下角的小三角来自定义尺寸：<br><img src="http://upload-images.jianshu.io/upload_images/430632-dcb0f6c89c48c047.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>做好准备工作，接着就了解一下左侧工具栏的一些工具：</p>
+<p><br>   </p>
+<h4 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h4><p>Select选择工具，用户可以点击需要选择的图形对象，也可以摁住鼠标拖动选中多个图形同时操作。当图形处于选中状态会出现如下的一个选中框框住，用户可以拖拽小正方形改变图形形状大小，也可以拖拽小圆形控制图形旋转：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/430632-46258db562bbbab2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><br></p>
+<h4 id="AutoDraw"><a href="#AutoDraw" class="headerlink" title="AutoDraw"></a>AutoDraw</h4><p>这就是我们今天的主角，它是画笔的一种，只是用AutoDraw画笔画出的图形，后台会根据人工智能识别，”揣摩”用户意图，然后在推荐栏列出一系列精美图案供用户选择，用户可以点击相应的图形替换当前绘制的图形：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/430632-42b51eaed4a05e04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/430632-b96dfecdbb32ecfc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><br></p>
+<h4 id="Draw"><a href="#Draw" class="headerlink" title="Draw"></a>Draw</h4><p>与AutoDraw不同的是Draw就是普通的画笔，用Draw画出来的抽象图形并不会有联想功能，用户可以通过面板左上角的滑块控制画笔笔刷的粗细：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/430632-ce04fabeb25c9a79.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/430632-2c20a9204b1e1f31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><br></p>
+<h4 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h4><p>Type是文字工具，选中Type工具并在面板上任意位置点击就可以进行文本输入，并可以通过操作面板的左上角控制字体样式和字体大小：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/430632-53822c50b8763301.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/430632-811d6d5c5e664a32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><br></p>
+<h4 id="Shape"><a href="#Shape" class="headerlink" title="Shape"></a>Shape</h4><p>Shape则是图形工具，Shape为用户提供了圆形、矩形和等边三角形三种形状的图形，用户只需要选中特定图形，并在面板中摁住并拖动鼠标，就能够绘制相应的图形：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/430632-10f955a6d480f29d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><br></p>
+<h4 id="ColorPicker"><a href="#ColorPicker" class="headerlink" title="ColorPicker"></a>ColorPicker</h4><p>ColorPicker是颜色选择器，用户只需要将鼠标移动到工具上方，颜色选择列表就会展开，用户可以点击左右移动的按钮选择更多的颜色，美中不足的是颜色值非常有限，要是Google官方能够优化一下，可以根据给定的RGB值来选择颜色就更完美了:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/430632-3267236cd3d48591.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ截图20170521155238.png"></p>
+<p><br></p>
+<h4 id="Fill"><a href="#Fill" class="headerlink" title="Fill"></a>Fill</h4><p>之前绘制出来的图形都是描边图形，而且颜色非常单一。为了让我们的作品显得更加鲜艳动人，我们就要来给我们的作品上色，就像小时候我们买来图画本用水彩笔涂上喜欢的颜色一样，这时候就需要用到Fill工具了，Fill既可以填充颜色，也可以改变描边颜色，填充色为ColorPicker选中的颜色：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/430632-26a53c3521e4dc74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><br></p>
+<h4 id="Zoom"><a href="#Zoom" class="headerlink" title="Zoom"></a>Zoom</h4><p>Zoom缩放工具，控制面板的缩放：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/430632-8a9e9129f6d6d1bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><br></p>
+<h4 id="Undo"><a href="#Undo" class="headerlink" title="Undo"></a>Undo</h4><p>Undo撤销工具，撤销上一次操作，对于PC用户这个工具貌似有点鸡肋，快捷键（ctrl+z）更加方便。</p>
+<p><br></p>
+<h4 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h4><p>Delete删除工具，一般时候这个工具都是不可操作状态，只有当前有操作对象或是选中对象是才会显示可操作状态，删除当前选中或者操作对象，对于PC用户这个工具貌似也很鸡肋，快捷键（delete）不要太方便。</p>
+<p>到这里AutoDraw的全部功能就介绍完啦 ！</p>
+<p>嗯，这个…     还有一个事情需要温馨提示一下，如果你的设备没有翻墙的话，这篇文章你基本上是也就是看看，没什么好激动的，因为根本没你什么事情，<a href="https://www.autodraw.com/" target="_blank" rel="external">AutoDraw</a>这个网站虽然能够打开，但是需要翻墙才能体验智能联想的效果。（PS：说了要先读完文章在试吧，那些没读完文章就开始尝试的，估计还傻傻的以为网速不行，哈哈 ~）关于这个问题，还是希望Google官方能尽快能够解决，让我们大陆用户能体验这个人工智能领域的有趣的网站吧！</p>
+<p>最后奉上我制作一张简易生日贺卡，望笑纳：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/430632-1f2bc0ec0d9f7700.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="autodraw 2017-5-21.png"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/06/用SpannableString打造绚丽多彩的文本显示效果/" rel="next" title="用SpannableString打造绚丽多彩的文本显示效果">
+                <i class="fa fa-chevron-left"></i> 用SpannableString打造绚丽多彩的文本显示效果
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="CoderMario" />
+          <p class="site-author-name" itemprop="name">CoderMario</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个关于码农小阿飞的博客平台，记录开发的点点滴滴.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/codermario" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/6081421055/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Select"><span class="nav-number">1.</span> <span class="nav-text">Select</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AutoDraw"><span class="nav-number">2.</span> <span class="nav-text">AutoDraw</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Draw"><span class="nav-number">3.</span> <span class="nav-text">Draw</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Type"><span class="nav-number">4.</span> <span class="nav-text">Type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Shape"><span class="nav-number">5.</span> <span class="nav-text">Shape</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ColorPicker"><span class="nav-number">6.</span> <span class="nav-text">ColorPicker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fill"><span class="nav-number">7.</span> <span class="nav-text">Fill</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Zoom"><span class="nav-number">8.</span> <span class="nav-text">Zoom</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Undo"><span class="nav-number">9.</span> <span class="nav-text">Undo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Delete"><span class="nav-number">10.</span> <span class="nav-text">Delete</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-circle-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderMario</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
