@@ -1,0 +1,916 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android，博客，码农，小阿飞，码农小阿飞" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="已经有两个月时间没有发表新文章了，从开始发表文章以来，常常会有线上的”简友”通过QQ和微信与我进行一些技术上沟通和交流，我也收获良多，几乎每次到最后，我都会厚着脸皮说：”多多关注哦，近期会有新文章要发表呢！”。奈何，每一次当我热情高涨准备在近期发表文章的时候，都因各种各样的事情耽搁了，于是乎，我一次又一次爽约了。的确，最近工作确实比较忙，几乎每一天都需要加班，难得某个周末的下午有点闲暇时间，我都">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用自定义View实现歌词显示控件上篇之实现歌词文件解析">
+<meta property="og:url" content="http://yoursite.com/android/article/自定义View强势来袭，用自定义View实现歌词显示控件上篇之实现歌词文件解析.html">
+<meta property="og:site_name" content="码农小阿飞的博客">
+<meta property="og:description" content="已经有两个月时间没有发表新文章了，从开始发表文章以来，常常会有线上的”简友”通过QQ和微信与我进行一些技术上沟通和交流，我也收获良多，几乎每次到最后，我都会厚着脸皮说：”多多关注哦，近期会有新文章要发表呢！”。奈何，每一次当我热情高涨准备在近期发表文章的时候，都因各种各样的事情耽搁了，于是乎，我一次又一次爽约了。的确，最近工作确实比较忙，几乎每一天都需要加班，难得某个周末的下午有点闲暇时间，我都">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-e1153ba12b8fcfea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-a4c60e9f302adabf.gif?imageMogr2/auto-orient/strip">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-079db15c014b1d78.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/480">
+<meta property="og:updated_time" content="2017-06-21T08:28:20.395Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用自定义View实现歌词显示控件上篇之实现歌词文件解析">
+<meta name="twitter:description" content="已经有两个月时间没有发表新文章了，从开始发表文章以来，常常会有线上的”简友”通过QQ和微信与我进行一些技术上沟通和交流，我也收获良多，几乎每次到最后，我都会厚着脸皮说：”多多关注哦，近期会有新文章要发表呢！”。奈何，每一次当我热情高涨准备在近期发表文章的时候，都因各种各样的事情耽搁了，于是乎，我一次又一次爽约了。的确，最近工作确实比较忙，几乎每一天都需要加班，难得某个周末的下午有点闲暇时间，我都">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/430632-e1153ba12b8fcfea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/android/article/自定义View强势来袭，用自定义View实现歌词显示控件上篇之实现歌词文件解析.html"/>
+
+
+
+
+
+  <title>用自定义View实现歌词显示控件上篇之实现歌词文件解析 | 码农小阿飞的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dadda70e9b159ddf7427ab3beb6ac6dc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">码农小阿飞的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bars"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/android/article/自定义View强势来袭，用自定义View实现歌词显示控件上篇之实现歌词文件解析.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoderMario">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码农小阿飞的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用自定义View实现歌词显示控件上篇之实现歌词文件解析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-01T14:15:58+08:00">
+                2016-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/430632-e1153ba12b8fcfea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>已经有两个月时间没有发表新文章了，从开始发表文章以来，常常会有线上的”简友”通过QQ和微信与我进行一些技术上沟通和交流，我也收获良多，几乎每次到最后，我都会厚着脸皮说：”多多关注哦，近期会有新文章要发表呢！”。奈何，每一次当我热情高涨准备在近期发表文章的时候，都因各种各样的事情耽搁了，于是乎，我一次又一次爽约了。的确，最近工作确实比较忙，几乎每一天都需要加班，难得某个周末的下午有点闲暇时间，我都泡在了球场上，热爱篮球是其一，最重要的是做我们这行的，由于工作性质，每周一定的运动是非常必要的，身体是革命的本钱不是嘛！ 不过，我可并没有因为忙碌就会在闲暇时候放纵自己，我依然坚持着自己的梦想，我一直在思考分享一些比较受用的功能效果，我也争取把每一个Demo做到最好！</p>
+<p>明天就是八月一号了，想着要在八月第一天有一个良好的开头，也就写下了这篇文章。</p>
+<p>这次我要向大家分享的是一个歌词控件，其实，也是我毕业设计中的一部分。起初我是用ScrollView嵌套TextView，再结合我的上一篇文章<a href="http://www.jianshu.com/p/84067ad289d2" target="_blank" rel="external">SpannableString</a>来实现的，Demo其实我早早地就将放在github上，不知道有没有朋友有留心看到，但是总感觉用着不是很流畅，而且不容易加入一些自定义内容，所以一直不好下笔，也不好向大家分享Demo。不过，有兴趣的朋友可以看一下<a href="https://github.com/WuLiFei/LyricManager" target="_blank" rel="external">（下载地址）</a>，个人感觉还是挺有创意的，嘻嘻！（害羞脸~）。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/430632-a4c60e9f302adabf.gif?imageMogr2/auto-orient/strip" alt="用ScrollView嵌套TextView实现LyricView效果图"></p>
+<p>效果图是旧版本哦，记住，是旧版本！ 通过自定义View实现的”进阶版”LyricView功能更强大，体验效果更佳，能够实现歌词滑动查看，当前播放位置高亮显示，滑动到指定位置并播放等等，总的来说，大致和网易云音乐的歌词显示效果一样。</p>
+<p>考虑到歌词显示控件涉及到歌词解析，自定义控件的实现等等诸多方面，可能文章的篇幅上会比较冗长，同时也为了方便”简友”们能够根据自己的需求和爱好各取所需。我也就仿着我之前写的文章<a href="http://www.jianshu.com/p/95ceb0a2ed27" target="_blank" rel="external">《像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒》</a>那样，将”用自定义View实现歌词显示控件”这篇文章也分成上、下两篇，分别是<a href="http://www.jianshu.com/p/7b6a42deff27" target="_blank" rel="external">《用自定义View实现歌词显示控件上篇之实现歌词文件解析》</a>和<a href="http://www.jianshu.com/p/576cbf43053e" target="_blank" rel="external">《用自定义View实现歌词显示控件下篇之自定义LyricView的实现》</a>。而今天将要分享的是上篇，主要讲解关于*.lrc文件的解析，内容偏理论，所以本章最后我也不会附上Demo，至于下篇我会尽快整理分享出来，届时上下篇的Demo我会整合在一起共享出来。好吧，进入正题：</p>
+<h5 id="首先，了解歌词文件的组成"><a href="#首先，了解歌词文件的组成" class="headerlink" title="首先，了解歌词文件的组成"></a>首先，了解歌词文件的组成</h5><p>写过音乐播放器的朋友也应该都会去了解过歌词文件的规范格式，既然是歌词显示控件，就必然需要好好了解歌词文件的组成规范，才能准确无误的解析歌词文件，获得与我有用的信息。</p>
+<pre><code>[ti:一个人的北京]
+[ar:好妹妹乐队]
+[al:南北]
+[by:]
+[offset:0]
+[00:00.10]一个人的北京 - 好妹妹乐队
+[00:00.20]词：秦昊
+[00:00.30]曲：秦昊
+[00:00.40]
+[00:30.16]你有多久没有看到 满天的繁星
+[00:37.34]城市夜晚虚伪的光明 遮住你的眼睛
+[00:44.40]连周末的电影 也变得不再有趣
+[00:51.71]疲惫的日子里 有太多的问题
+[00:59.21]
+[01:00.96]你有多久单身一人 不再去旅行
+[01:08.20]习惯下班回到家里 冷冰冰的空气
+[01:15.58]爱情这东西 你已经不再有勇气
+[01:22.64]情歌有多动听 你就有多怀疑
+[01:30.60]许多人来来去去 相聚又别离
+[01:38.29]也有人喝醉哭泣 在一个人的北京
+[01:45.16]也许我成功失意 慢慢的老去
+[01:52.76]能不能让我留下片刻的回忆
+[01:58.95]
+[01:59.67]许多人来来去去 相聚又别离
+[02:07.23]也有人匆匆逃离 这一个人的北京
+[02:14.30]也许有一天我们 一起离开这里
+[02:21.86]离开了这里 在晴朗的天气
+[02:28.38]
+[02:58.98]你有多久单身一人 不再去旅行
+[03:06.36]习惯下班回到家里 冷冰冰的空气
+[03:13.55]爱情这东西 你已经不再有勇气
+[03:20.69]情歌有多动听 你就有多怀疑
+[03:28.53]许多人来来去去 相聚又别离
+[03:36.22]也有人喝醉哭泣 在一个人的北京
+[03:43.28]也许我成功失意 慢慢的老去
+[03:50.82]能不能让我留下片刻的回忆
+[03:57.64]许多人来来去去 相聚又别离
+[04:05.25]也有人匆匆逃离 这一个人的北京
+[04:12.31]也许有一天我们 一起离开这里
+[04:19.88]离开了这里 在晴朗的天气
+[04:26.62]许多人来来去去 相聚又别离
+[04:34.24]也有人匆匆逃离 这一个人的北京
+[04:41.37]也许有一天我们 一起离开这里
+[04:48.87]离开了这里 在晴朗的天气
+[04:55.08]
+[04:56.27]让我拥抱你 在晴朗的天气
+</code></pre><p>这如上述文本显示，是我在QQ音乐中下载的歌词文件，并用文本方式打开看到的一个结果。其实，所有歌词文件（*.lrc）都是以一个标准来进行制作的，就如同上述文件一样由以”[ti:”开头的标题、以”[ar:”开头的歌手、以”[al:”开头的专辑、以”[by:”开头的制作、以”[offset:”开头的时间偏移量和以”[mm:ss.ms]”开头的歌词信息组成，歌词信息则是由开始时间（分：秒.毫秒）和歌词内容两部分组成。</p>
+<h5 id="接着，解析歌词文件"><a href="#接着，解析歌词文件" class="headerlink" title="接着，解析歌词文件"></a>接着，解析歌词文件</h5><p>既然了解了歌词文件的组成部分，那么解析歌词文件也就不是一件困难的事情了，就是简单的文件内容读取：首先获取*.lrc歌词文件的二进制流InputStream，再又转换成字符流（注意：转化成字符流的时候需要选择编码，经过我多次尝试，发现好像QQ音乐的歌词文件需要用”GBK”解码，也不清楚会不会有具体的判别方式，有了解的朋友希望可以在留言区和大伙儿分享），然后再调用BufferedReader的readLine()方法逐行读取文件内容，就能获得文件内容了，在这里有一点需要注意的是，各种流在使用结束后一定要调用close()方法关闭。下面就是实现歌词文件的解析工作：</p>
+<p>首先，需要准备两个类主要用于歌词解析结果的缓存：LyricInfo（歌词信息：包含标题、歌手、专辑等等）和LineInfo（歌词行信息：包含行开始时间和歌词行内容）：</p>
+<p><code>LyricInfo 歌词文件信息</code></p>
+<pre><code>class LyricInfo {
+    List&lt;LineInfo&gt; song_lines;  
+
+    String song_artist;  // 歌手
+    String song_title;  // 标题
+    String song_album;  // 专辑
+
+    long song_offset;  // 偏移量
+}
+</code></pre><p><code>LineInfo 歌词行信息</code></p>
+<pre><code>class LineInfo {
+    String content;  // 歌词内容
+    long start;  // 开始时间
+}
+</code></pre><p><code>解析歌词文件源码</code></p>
+<pre><code>/**
+ * 初始化歌词信息
+ * @param inputStream  歌词文件的流信息
+ * */
+  private void setupLyricResource(InputStream inputStream, String charsetName) {
+    if(inputStream != null) {
+        try {
+            LyricInfo lyricInfo = new LyricInfo();
+            lyricInfo.song_lines = new ArrayList&lt;&gt;();
+            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, charsetName);
+            BufferedReader reader = new BufferedReader(inputStreamReader);
+            String line = null;
+            while((line = reader.readLine()) != null) {
+                analyzeLyric(lyricInfo, line);
+            }
+            reader.close();
+            inputStream.close();
+            inputStreamReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+ /**
+ * 逐行解析歌词内容
+ * */
+private void analyzeLyric(LyricInfo lyricInfo, String line) {
+    int index = line.lastIndexOf(&quot;]&quot;);
+    if(line != null &amp;&amp; line.startsWith(&quot;[offset:&quot;)) {
+        // 时间偏移量
+        String string = line.substring(8, index).trim();
+        lyricInfo.song_offset = Long.parseLong(string);
+        return;
+    }
+    if(line != null &amp;&amp; line.startsWith(&quot;[ti:&quot;)) {
+        // title 标题
+        String string = line.substring(4, index).trim();
+        lyricInfo.song_title = string;
+        return;
+    }
+    if(line != null &amp;&amp; line.startsWith(&quot;[ar:&quot;)) {
+        // artist 作者
+        String string = line.substring(4, index).trim();
+        lyricInfo.song_artist = string;
+        return;
+    }
+    if(line != null &amp;&amp; line.startsWith(&quot;[al:&quot;)) {
+        // album 所属专辑
+        String string = line.substring(4, index).trim();
+        lyricInfo.song_album = string;
+        return;
+    }
+    if(line != null &amp;&amp; line.startsWith(&quot;[by:&quot;)) {
+        return;
+    }
+    if(line != null &amp;&amp; index == 9 &amp;&amp; line.trim().length() &gt; 10) {
+        // 歌词内容
+        LineInfo lineInfo = new LineInfo();
+        lineInfo.content = line.substring(10, line.length());
+        lineInfo.start = measureStartTimeMillis(line.substring(0, 10));
+        lyricInfo.song_lines.add(lineInfo);
+    }
+}
+
+
+/**
+ * 从字符串中获得时间值
+ * */
+private long measureStartTimeMillis(String str) {
+    long minute = Long.parseLong(str.substring(1, 3));
+    long second = Long.parseLong(str.substring(4, 6));
+    long millisecond = Long.parseLong(str.substring(7, 9));
+    return millisecond + second * 1000 + minute * 60 * 1000;
+}
+</code></pre><h5 id="最后，验证解析效果"><a href="#最后，验证解析效果" class="headerlink" title="最后，验证解析效果"></a>最后，验证解析效果</h5><p>完成歌词解析，接下来就是验证歌词解析的一个实际效果的时候了：</p>
+<pre><code>File file = new File(Constant.lyricPath + &quot;一个人的北京 - 好妹妹乐队.lrc&quot;);
+    if (file != null &amp;&amp; file.exists()) {
+        try {
+            setupLyricResource(new FileInputStream(file), &quot;GBK&quot;);
+            StringBuffer stringBuffer = new StringBuffer();
+            if(lyricInfo != null &amp;&amp; lyricInfo.song_lines != null) {
+                int size = lyricInfo.song_lines.size();
+                for (int i = 0; i &lt; size; i ++) {
+                    stringBuffer.append(lyricInfo.song_lines.get(i).content + &quot;\n&quot;);
+                }
+                textView.setText(stringBuffer.toString());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/430632-079db15c014b1d78.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/480" alt="歌词解析效果图"></p>
+<p>关于歌词解析的内容到这里就结束了，希望大家能够多多关注哦！ </p>
+<blockquote>
+<p><strong>作者申明：</strong>如果文中有表述不当或阐述错误的地方，还望正在看文章的您可以帮忙指出，有疑惑也可以在评论区提问或者私信，期待您的意见和建议，欢迎关注交流。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/android/article/用ClipDrawable实现音频录制麦克风讲话效果.html" rel="next" title="用ClipDrawable实现音频录制麦克风讲话效果">
+                <i class="fa fa-chevron-left"></i> 用ClipDrawable实现音频录制麦克风讲话效果
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/android/article/自定义View强势来袭，用自定义View实现歌词显示控件下篇之自定义LyricView的实现.html" rel="prev" title="用自定义View实现歌词显示控件下篇之自定义LyricView的实现">
+                用自定义View实现歌词显示控件下篇之自定义LyricView的实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="CoderMario" />
+          <p class="site-author-name" itemprop="name">CoderMario</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个关于码农小阿飞的博客平台，记录开发的点点滴滴.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/codermario" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/6081421055/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#首先，了解歌词文件的组成"><span class="nav-number">1.</span> <span class="nav-text">首先，了解歌词文件的组成</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#接着，解析歌词文件"><span class="nav-number">2.</span> <span class="nav-text">接着，解析歌词文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#最后，验证解析效果"><span class="nav-number">3.</span> <span class="nav-text">最后，验证解析效果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-circle-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderMario</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

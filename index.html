@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android，博客，码农，小阿飞，码农小阿飞" />
 
 
 
@@ -276,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/21/分享一个有趣的人工智能绘图网站/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/android/article/Android主题切换（Theme）实现日夜间功能.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CoderMario">
@@ -295,7 +295,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/21/分享一个有趣的人工智能绘图网站/" itemprop="url">分享一个有趣的人工智能绘图网站</a></h1>
+                <a class="post-title-link" href="/android/article/Android主题切换（Theme）实现日夜间功能.html" itemprop="url">Android主题切换（Theme）实现日夜间功能</a></h1>
         
 
         <div class="post-meta">
@@ -307,8 +307,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-21T16:25:58+08:00">
-                2017-05-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-06T17:15:48+08:00">
+                2017-03-06
               </time>
             
 
@@ -330,8 +330,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/other/" itemprop="url" rel="index">
-                    <span itemprop="name">other</span>
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
                   </a>
                 </span>
 
@@ -366,11 +366,13 @@
       
         
           
-          相信不少技术爱好者已经关注到，早些前，谷歌推出了一款线上绘图神器——AutoDraw。它可以一键把你粗糙的涂鸦变成一个精美的图案，而且AutoDraw基本不受设备的限制，不论是在手机、平板、电脑上都能顺畅运作。你只需用鼠标简单的绘出大致形状，AI便会猜你实际上画的是什么，列出可能结果清单，将你的图案
+          
+
+前言随着一款APP应用功能的不断完善，用户群体的不断增多，APP的更新也就不仅仅局限于功能需求，如何做好良好的用户体验，让用户传播良好的体验口碑，显得尤为重要，而用户体验一块日夜间模式俨然成为了标配。其实，日夜间功能就是换肤的一种，关于换肤功能的实现，也是众说纷纭，总的来讲分为两类：主题换肤（T
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/05/21/分享一个有趣的人工智能绘图网站/#more" rel="contents">
+            <a class="btn" href="/android/article/Android主题切换（Theme）实现日夜间功能.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -416,7 +418,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/06/用SpannableString打造绚丽多彩的文本显示效果/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/android/article/自定义View强势来袭，用自定义View实现歌词显示控件下篇之自定义LyricView的实现.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CoderMario">
@@ -435,7 +437,431 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/06/06/用SpannableString打造绚丽多彩的文本显示效果/" itemprop="url">用SpannableString打造绚丽多彩的文本显示效果</a></h1>
+                <a class="post-title-link" href="/android/article/自定义View强势来袭，用自定义View实现歌词显示控件下篇之自定义LyricView的实现.html" itemprop="url">用自定义View实现歌词显示控件下篇之自定义LyricView的实现</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-05T13:55:21+08:00">
+                2016-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+在上篇中，我与大家分享了关于如何进行*.lrc歌词文件的解析，以及将解析完成后的歌词展示在镶嵌在ScrollView中的TextView上，就这样而言，一个简单的歌词显示功能也就实现了。 但是，如何才能够让自己写的音乐播放器在歌词显示模块能够显得高大上，并且能够像很多当前应用市场上流行的音乐播放器
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/android/article/自定义View强势来袭，用自定义View实现歌词显示控件下篇之自定义LyricView的实现.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/android/article/自定义View强势来袭，用自定义View实现歌词显示控件上篇之实现歌词文件解析.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoderMario">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码农小阿飞的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/android/article/自定义View强势来袭，用自定义View实现歌词显示控件上篇之实现歌词文件解析.html" itemprop="url">用自定义View实现歌词显示控件上篇之实现歌词文件解析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-08-01T14:15:58+08:00">
+                2016-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+已经有两个月时间没有发表新文章了，从开始发表文章以来，常常会有线上的”简友”通过QQ和微信与我进行一些技术上沟通和交流，我也收获良多，几乎每次到最后，我都会厚着脸皮说：”多多关注哦，近期会有新文章要发表呢！”。奈何，每一次当我热情高涨准备在近期发表文章的时候，都因各种各样的事情耽搁了，于是乎，我一
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/android/article/自定义View强势来袭，用自定义View实现歌词显示控件上篇之实现歌词文件解析.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/android/article/用ClipDrawable实现音频录制麦克风讲话效果.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoderMario">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码农小阿飞的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/android/article/用ClipDrawable实现音频录制麦克风讲话效果.html" itemprop="url">用ClipDrawable实现音频录制麦克风讲话效果</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-21T13:46:56+08:00">
+                2016-06-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+由于最近项目开发需要用到自定义SeekBar，于是又对android下的各种类型drawable进行了一个全面系统的认识，只能感慨drawable的功能还是很强大的。通过自定义SeekBar有感而发，尝试用ClipDrawable实现音频录制过程的一个麦克风录制效果：
+在实现开发之前先让我们一起认
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/android/article/用ClipDrawable实现音频录制麦克风讲话效果.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/android/article/用SpannableString打造绚丽多彩的文本显示效果.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoderMario">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码农小阿飞的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/android/article/用SpannableString打造绚丽多彩的文本显示效果.html" itemprop="url">用SpannableString打造绚丽多彩的文本显示效果</a></h1>
         
 
         <div class="post-meta">
@@ -510,7 +936,7 @@
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/06/06/用SpannableString打造绚丽多彩的文本显示效果/#more" rel="contents">
+            <a class="btn" href="/android/article/用SpannableString打造绚丽多彩的文本显示效果.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -556,7 +982,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/05/07/博客开篇/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/android/article/像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（下）.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CoderMario">
@@ -575,7 +1001,574 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/05/07/博客开篇/" itemprop="url">博客开篇</a></h1>
+                <a class="post-title-link" href="/android/article/像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（下）.html" itemprop="url">用WindowManager实现炫酷的悬浮迷你音乐盒（下）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-26T23:49:24+08:00">
+                2016-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+在上一篇文章像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（上）中我粗粗的向大家介绍了WindowManager和WindowManager.LayoutParams，讲的都是理论知识，现在我们就要动起手来，着手开发炫酷的悬浮迷你音乐盒了。先上效果图：
+
+怎么样，是否打动
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/android/article/像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（下）.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/android/article/像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（上）.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoderMario">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码农小阿飞的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/android/article/像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（上）.html" itemprop="url">用WindowManager实现炫酷的悬浮迷你音乐盒（上）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-26T22:34:45+08:00">
+                2016-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+打开简信我的首页，亮闪闪的几个字6天之前，是的，距离我的上一篇文章已经6天，原计划这篇文章会是在周一晚上的时候发的，可是最近也有点突发事件，打乱我原有的计划。咳！反正就是瞎忙，不过我还是会坚持用心写好每一篇文章。
+记得上一篇讲的是用RotateDrawable实现网易云音乐唱片机效果，而今天我要讲
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/android/article/像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（上）.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/android/article/用RotateDrawable实现网易云音乐唱片机效果.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoderMario">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码农小阿飞的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/android/article/用RotateDrawable实现网易云音乐唱片机效果.html" itemprop="url">用RotateDrawable实现网易云音乐唱片机效果</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-20T07:28:31+08:00">
+                2016-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+有一段时间没有更新文章了，记得上一篇文章讲的是《用ClipDrawable实现音频录制麦克风讲话效果》，用户反响也都还不错，自己也是深受鼓舞。其实从那之后就一直想写一篇关于RotateDrawable的文章，原因很简单，RotateDrawable其实和上一篇文章中的ClipDrawable很相似
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/android/article/用RotateDrawable实现网易云音乐唱片机效果.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/android/article/浅谈PopupWindow在Android开发中的使用.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoderMario">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码农小阿飞的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/android/article/浅谈PopupWindow在Android开发中的使用.html" itemprop="url">浅谈PopupWindow在Android开发中的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-10T11:54:29+08:00">
+                2016-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+在Android中弹出式菜单（以下称弹窗）是使用十分广泛一种菜单呈现的方式，弹窗为用户交互提供了便利。关于弹窗的实现大致有以下两种方式AlertDialog和PopupWindow，当然网上也有使用Activity并配合Dialog主题的方式实现弹窗，有兴趣的朋友也可以去研究一下。对于AlertD
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/android/article/浅谈PopupWindow在Android开发中的使用.html#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/other/article/博客开篇.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoderMario">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码农小阿飞的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/other/article/博客开篇.html" itemprop="url">博客开篇</a></h1>
         
 
         <div class="post-meta">
@@ -652,7 +1645,7 @@
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/05/07/博客开篇/#more" rel="contents">
+            <a class="btn" href="/other/article/博客开篇.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -734,7 +1727,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -751,15 +1744,6 @@
             </div>
           
 
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              
-                <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">标签</span>
-              
-            </div>
           
 
         </nav>

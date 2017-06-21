@@ -1,0 +1,799 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android，博客，码农，小阿飞，码农小阿飞" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="打开简信我的首页，亮闪闪的几个字6天之前，是的，距离我的上一篇文章已经6天，原计划这篇文章会是在周一晚上的时候发的，可是最近也有点突发事件，打乱我原有的计划。咳！反正就是瞎忙，不过我还是会坚持用心写好每一篇文章。 记得上一篇讲的是用RotateDrawable实现网易云音乐唱片机效果，而今天我要讲的是如何用WindowManager去实现一个悬浮窗迷你音乐盒。，由于WindowManager这一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用WindowManager实现炫酷的悬浮迷你音乐盒（上）">
+<meta property="og:url" content="http://yoursite.com/android/article/像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（上）.html">
+<meta property="og:site_name" content="码农小阿飞的博客">
+<meta property="og:description" content="打开简信我的首页，亮闪闪的几个字6天之前，是的，距离我的上一篇文章已经6天，原计划这篇文章会是在周一晚上的时候发的，可是最近也有点突发事件，打乱我原有的计划。咳！反正就是瞎忙，不过我还是会坚持用心写好每一篇文章。 记得上一篇讲的是用RotateDrawable实现网易云音乐唱片机效果，而今天我要讲的是如何用WindowManager去实现一个悬浮窗迷你音乐盒。，由于WindowManager这一">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-3cf36e1a163cb3f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-06-21T08:38:20.880Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用WindowManager实现炫酷的悬浮迷你音乐盒（上）">
+<meta name="twitter:description" content="打开简信我的首页，亮闪闪的几个字6天之前，是的，距离我的上一篇文章已经6天，原计划这篇文章会是在周一晚上的时候发的，可是最近也有点突发事件，打乱我原有的计划。咳！反正就是瞎忙，不过我还是会坚持用心写好每一篇文章。 记得上一篇讲的是用RotateDrawable实现网易云音乐唱片机效果，而今天我要讲的是如何用WindowManager去实现一个悬浮窗迷你音乐盒。，由于WindowManager这一">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/430632-3cf36e1a163cb3f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/android/article/像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（上）.html"/>
+
+
+
+
+
+  <title>用WindowManager实现炫酷的悬浮迷你音乐盒（上） | 码农小阿飞的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?dadda70e9b159ddf7427ab3beb6ac6dc";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">码农小阿飞的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bars"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/android/article/像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（上）.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoderMario">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="码农小阿飞的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用WindowManager实现炫酷的悬浮迷你音乐盒（上）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-26T22:34:45+08:00">
+                2016-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://upload-images.jianshu.io/upload_images/430632-3cf36e1a163cb3f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="说到悬浮窗大家一定会想到这俩货"></p>
+<p>打开简信我的首页，亮闪闪的几个字<strong>6天之前</strong>，是的，距离我的上一篇文章已经6天，原计划这篇文章会是在周一晚上的时候发的，可是最近也有点突发事件，打乱我原有的计划。咳！反正就是瞎忙，不过我还是会坚持用心写好每一篇文章。</p>
+<p>记得上一篇讲的是<a href="https://codermario.github.io/android.article/用RotateDrawable实现网易云音乐唱片机效果" target="_blank" rel="external">用RotateDrawable实现网易云音乐唱片机效果</a>，而今天我要讲的是如何用WindowManager去实现一个悬浮窗迷你音乐盒。，由于WindowManager这一块内容会比较多，所以我决定分成上下两篇来写这一块，这一篇主要介绍WindowManager和它的一些属性，可能会有些枯燥，下一篇我会具体去写悬浮迷你音乐盒的实现。</p>
+<h4 id="WindowManager"><a href="#WindowManager" class="headerlink" title="WindowManager"></a>WindowManager</h4><p>在Android应用开发中，其实整个Android的窗口机制是基于一个叫做WindowManager的一个系统服务接口，WindowManager可以添加view到屏幕，也可以从屏幕删除view。它面向的对象一端是屏幕，另一端就是View，其实就连我们常用的Activity和Diolog的底层实现都是通过WindowManager， WindowManager是全局的，整个系统就只用一个Windowmanager服务，我们需要向系统获取服务才能调用它，而它就是显示View的最底层。</p>
+<p>其实WindowManager用起来非常方便，就三个方法：</p>
+<h6 id="添加View"><a href="#添加View" class="headerlink" title="添加View"></a>添加View</h6><pre><code>addView(View view, WindowManager.LayoutParams params);
+</code></pre><p>从方法中我们可以看到，addView需要两个参数，view简单，就是我们要向窗口中去添加的对象，至于params，就是给窗口设置的显示策略，包括窗口的大小、透明度等等，这个也是今天文章的重点，在后文会有所介绍。</p>
+<h6 id="移除View"><a href="#移除View" class="headerlink" title="移除View"></a>移除View</h6><pre><code>removeView(View view);
+</code></pre><p>既然能够向窗口去添加View，当然也就能够从窗口上移除View，这个很简单view就是你要从窗口中移除的对象。</p>
+<h6 id="刷新View"><a href="#刷新View" class="headerlink" title="刷新View"></a>刷新View</h6><pre><code>updateViewLayout(View view, ViewGroup.LayoutParams params)
+</code></pre><p>同样窗口刷新也需要两个参数，和添加View一样view是需要更新的对象，而params就是更新后的策略属性。</p>
+<h4 id="WindowManager-LayoutParams"><a href="#WindowManager-LayoutParams" class="headerlink" title="WindowManager.LayoutParams"></a>WindowManager.LayoutParams</h4><p>相比于WindowManager，WindowManager.LayoutParams可就要复杂好多了。WindowManager.LayoutParams是 WindowManager 接口的嵌套类，在窗口管理中扮演着重要的角色。它继承于ViewGroup.LayoutParams，它用于向WindowManager描述窗口的管理策略；WindowManager.LayoutParams可以直接new WindowManager.LayoutParams()新建，也可以从对窗口的getAttributes()得到其WindowManager.LayoutParams对象。WindowManager.LayoutParams常用的有以下主要常量成员：</p>
+<h6 id="flag"><a href="#flag" class="headerlink" title="flag"></a>flag</h6><ul>
+<li><code>WindowManager.LayoutParams.FLAG_SECURE</code> 不允许截屏；设置了这个属性的窗口，在窗口可见的情况下，是会禁用系统的截图功能的。那么问题来了：假如有一天，你的公司要求写一个类似于‘阅后即焚’功能的页面的话，不妨在activity中获得WindowManager.LayoutParams并添加该属性，轻轻松松搞定。</li>
+<li><code>WindowManager.LayoutParams.FLAG_BLUR_BEHIND</code> 背景模糊；假如你的窗口设置了这个属性，并且这个窗口可见，在这窗口之后的所有背景都会被模糊化，但我还没有发现一个属性是可以控制模糊程度的。</li>
+<li><code>WindowManager.LayoutParams.FLAG_DIM_BEHIND</code> 背景变暗；设置这个效果的窗口，在窗口可见的情况下，窗口后方的背景会相应的变暗，这个属性需要配合参数dimAmount一起使用，dimAmount会在后文中介绍。</li>
+<li><code>WindowManager.LayoutParams.FLAG_FULLSCREEN</code> 设置全屏；这个属性也许是大家接触的最多的一个属性，很多应用开发过程中会要求有些页面需要动态设置Activity为全屏，而我们只需要获得Activity的WindowManager.LayoutParams并设置<code>WindowManager.LayoutParams.FLAG_FULLSCREEN</code>属性就行。</li>
+<li><code>WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON</code> 设备常亮；设置这个属性的窗口，在窗口可见的情况下，整个屏幕会处于常亮并且高亮度的状态，并且不受待机时间的约束。</li>
+<li><code>WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS</code> 布局不受限制；设置这个属性的窗口，将不再受设备显示范围边界 的约束，通俗点讲，就是窗口可以出设备之外，然后移除部分不可见。具体会在坐标参数中讲到。</li>
+<li><code>WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE</code> 不设置聚焦；关于焦点获得我有必要说明一下，如果窗口获得焦点的话，只要窗口处于可视化状态，当前设备的物理按键点击事件都会被这个窗口接收，但是如果不设置窗口的焦点的话，直接传递到之后窗口进行接收。这就导致一个问题，如果你的需求要求你写的悬浮窗点击返回键能够关闭或是进行其他操作的话，你就必须让你的窗口获得焦点，并为当前View设置按键监听事件。</li>
+<li><code>WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE</code> 取消触摸事件； 设置这个属性的窗口将不再处理任何Touch事件，就算显示的View设置了onTouch事件，那么这个窗口就会是一个僵尸窗口。</li>
+<li><code>WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL</code> 不知道怎么去归纳，这个属性还是比较有意思的，设置这个属性的窗口，在窗口可见的情况下，就算窗口没有设置属性<code>FLAG_NOT_FOCUSABLE</code>，也就是在窗口获得焦点的情况下，当触摸事件是在窗口之外区域的时候，窗口不在拦截触摸事件，而是将事件往下传递，也算是解决聚焦后的事件拦截问题吧。</li>
+<li><code>WindowManager.LayoutParams.FLAG_SHOW_WALLPAPER</code> 显示壁纸；官方文档说明是在窗口之后显示系统壁纸，但是我亲测，似乎并没有这个想效果，还是这个属性需要配合其他的属性设置一起使用，希望有设置成功的小伙伴能够在评论区分享你的结果。</li>
+<li><code>WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED</code> 锁屏显示；关于这个属性官方文档给出的说明是在锁屏的时候显示的窗口，但是，实在惭愧，在下还是没有能够有一个实验结果，不知道是需要给权限呢还是需要同时进行其他设置。同样，还是很希望有知道的小伙伴能够在评论区向大家分享。</li>
+<li><code>WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON</code> 点亮屏幕；设置这个属性的窗口，当窗口显示的时候，如果设备处于待机状态，会点亮设备。这个应该在很多锁屏窗口中用的比较多，比如收到消息点亮屏幕。</li>
+<li><code>WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH</code> 这个也不知道怎么去归纳，也是一个比较有意思的属性，之前我们说到<code>FLAG_NOT_TOUCH_MODAL</code>，在窗口获得焦点的情况下，当触摸事件是在窗口之外区域的时候，窗口不在拦截触摸事件，而是将事件往下传递，而如果再设置这个属性，窗口能在<code>MotionEvent.ACTION_OUTSIDE</code>中收获窗口之外的点击事件，遗憾的是不能进行屏蔽，也就是说事件依然会向下传递。</li>
+</ul>
+<p>以上的也是最常用到的几个flag属性了吧，其他还有很多，也希望大家空闲之余能够去研究研究，欢迎再评论区补充。</p>
+<h6 id="type"><a href="#type" class="headerlink" title="type"></a>type</h6><p>type主要用于表示window的类型。我们可以通过WindowManager.LayoutParams的type变量对窗口类型直接进行设置。常用的窗口类型也就以下两种：</p>
+<ul>
+<li><code>WindowManager.LayoutParams.TYPE_APPLICATION_PANEL</code> 我在之前文章中介绍过的<a href="http://www.jianshu.com/p/825d1cc9fa79" target="_blank" rel="external">PopupWindow</a>，我也翻阅过PopupWindow的源码，PopupWindow用的就是<code>TYPE_APPLICATION_PANEL</code>这个属性类型。这种类型的窗口在显示寄生于宿主窗口，并显示与宿主窗口之上,因此这种类型的窗口会随着宿主窗口的关闭而关闭，显然不能满足我们悬浮窗的要求。</li>
+<li><code>WindowManager.LayoutParams.TYPE_SYSTEM_ALERT</code>  系统提示窗口,常见的比如内存不够的警告、低电量警告。它总是出现在应用程序窗口之上，而这一点，正合我们做一个能够显示在任何应用之上的悬浮迷你音乐盒的要求。</li>
+</ul>
+<h6 id="screenBrightness、buttonBrightness"><a href="#screenBrightness、buttonBrightness" class="headerlink" title="screenBrightness、buttonBrightness"></a>screenBrightness、buttonBrightness</h6><p>其中screenBrightness表示屏幕的亮度，而buttonBrightness表示一般按键和键盘按键的亮度。它们都拥有以下三个系统属性：</p>
+<ul>
+<li><code>WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_OFF</code>   最低屏幕亮度。</li>
+<li><code>WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_NONE</code>  默认屏幕亮度。</li>
+<li><code>WindowManager.LayoutParams.BRIGHTNESS_OVERRIDE_FULL</code>  最高屏幕亮度。</li>
+</ul>
+<h6 id="dimAmount"><a href="#dimAmount" class="headerlink" title="dimAmount"></a>dimAmount</h6><p>讲flag属性的时候有提到过，这个参数是要和<code>WindowManager.LayoutParams.FLAG_DIM_BEHIND</code>这个flag属性一起使用，dimAmount的取值在0.0f~1.0f之间，取值越大背景的变暗程度越高，默认取值1.0f。</p>
+<h6 id="width、height"><a href="#width、height" class="headerlink" title="width、height"></a>width、height</h6><p>这里的width、height其实和View中的width、height一样的理解，就是控制窗口视图的大小，可以具体取值，也可以使用系统属性：</p>
+<ul>
+<li><code>WindowManager.LayoutParams.WRAP_CONTENT</code> 自适应大小</li>
+<li><code>WindowManager.LayoutParams.MATCH_PARENT</code> 填满整个布局</li>
+</ul>
+<h6 id="gravity"><a href="#gravity" class="headerlink" title="gravity"></a>gravity</h6><p>窗口的对齐方式，一般在创建窗口的时候，都会设置gravity为左上角对齐，也就是<code>Gravity.LEFT | Gravity.TOP</code>，因为窗口的坐标设置，是基于gravity来进行计算的，设置gravity左上角，刚好是和系统的坐标相对应，方便计算。</p>
+<h6 id="x、y"><a href="#x、y" class="headerlink" title="x、y"></a>x、y</h6><p>x和y用于控制窗口的坐标位置，如果有设置gravity的话，x和y设置的就是在gravity这个基础上的一个偏移量。不设置gravity的话，x和y就是一个绝对坐标。因此，将gravity设置为<code>Gravity.LEFT | Gravity.TOP</code>是最易于开发的。<em>需要注意的一点是：设置y的时候常常需要考虑状态栏的高度。</em><br>正常情况下，就算x和y的坐标已经在设备之外，也会贴边显示。而如果设置属性<code>FLAG_LAYOUT_NO_LIMITS</code>则相对于系统的坐标如果x和y超出设备，那么超出部分将无法显示。</p>
+<h6 id="windowAnimations"><a href="#windowAnimations" class="headerlink" title="windowAnimations"></a>windowAnimations</h6><p>windowAnimations控制的是窗口出现和消失的动画效果，设置的是要系统自带的动画效果（android.R.style之下的动画效果），因为窗口管理器是不能访问应用资源的。</p>
+<h6 id="format"><a href="#format" class="headerlink" title="format"></a>format</h6><p>format可以理解为最后窗口生成的位图是什么格式，默认背景是黑色的。一般我们都设置为PixelFormat.RGBA_8888，这样我们的窗口就会有一个透明的背景。</p>
+<h6 id="alpha"><a href="#alpha" class="headerlink" title="alpha"></a>alpha</h6><p>这个不难理解，设置窗口的透明度。</p>
+<p>其实WindowManager.LayoutParams的属性有很多，全介绍一遍恐怕要讲到天亮，而且还有一些我本人也没有试过，要是还有什么比较实用或是比较有趣的属性，也欢迎小伙伴们在评论区留言！！   不胜感激！！！！</p>
+<p>下篇预告：<a href="http://www.jianshu.com/p/7bb5dbaff7de" target="_blank" rel="external">像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（下）</a>，会有意想不到的惊喜。</p>
+<blockquote>
+<p>如果文中有表述不当或阐述错误的地方，还望正在看文章的您可以帮忙指出，有疑惑也可以在评论区提问或者私信，期待您的意见和建议，欢迎关注交流。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/android/article/用RotateDrawable实现网易云音乐唱片机效果.html" rel="next" title="用RotateDrawable实现网易云音乐唱片机效果">
+                <i class="fa fa-chevron-left"></i> 用RotateDrawable实现网易云音乐唱片机效果
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/android/article/像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（下）.html" rel="prev" title="用WindowManager实现炫酷的悬浮迷你音乐盒（下）">
+                用WindowManager实现炫酷的悬浮迷你音乐盒（下） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="CoderMario" />
+          <p class="site-author-name" itemprop="name">CoderMario</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个关于码农小阿飞的博客平台，记录开发的点点滴滴.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/codermario" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/6081421055/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#WindowManager"><span class="nav-number">1.</span> <span class="nav-text">WindowManager</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#添加View"><span class="nav-number">1.0.1.</span> <span class="nav-text">添加View</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#移除View"><span class="nav-number">1.0.2.</span> <span class="nav-text">移除View</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#刷新View"><span class="nav-number">1.0.3.</span> <span class="nav-text">刷新View</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#WindowManager-LayoutParams"><span class="nav-number">2.</span> <span class="nav-text">WindowManager.LayoutParams</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#flag"><span class="nav-number">2.0.1.</span> <span class="nav-text">flag</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#type"><span class="nav-number">2.0.2.</span> <span class="nav-text">type</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#screenBrightness、buttonBrightness"><span class="nav-number">2.0.3.</span> <span class="nav-text">screenBrightness、buttonBrightness</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#dimAmount"><span class="nav-number">2.0.4.</span> <span class="nav-text">dimAmount</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#width、height"><span class="nav-number">2.0.5.</span> <span class="nav-text">width、height</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#gravity"><span class="nav-number">2.0.6.</span> <span class="nav-text">gravity</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#x、y"><span class="nav-number">2.0.7.</span> <span class="nav-text">x、y</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#windowAnimations"><span class="nav-number">2.0.8.</span> <span class="nav-text">windowAnimations</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#format"><span class="nav-number">2.0.9.</span> <span class="nav-text">format</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#alpha"><span class="nav-number">2.0.10.</span> <span class="nav-text">alpha</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-circle-o"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderMario</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
