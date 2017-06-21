@@ -96,11 +96,11 @@
 <meta name="description" content="打开简信我的首页，亮闪闪的几个字6天之前，是的，距离我的上一篇文章已经6天，原计划这篇文章会是在周一晚上的时候发的，可是最近也有点突发事件，打乱我原有的计划。咳！反正就是瞎忙，不过我还是会坚持用心写好每一篇文章。 记得上一篇讲的是用RotateDrawable实现网易云音乐唱片机效果，而今天我要讲的是如何用WindowManager去实现一个悬浮窗迷你音乐盒。，由于WindowManager这一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用WindowManager实现炫酷的悬浮迷你音乐盒（上）">
-<meta property="og:url" content="http://yoursite.com/android/article/像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（上）.html">
+<meta property="og:url" content="http://yoursite.com/android/article/cj46rs2c90005g4ozqv723dwr.html">
 <meta property="og:site_name" content="码农小阿飞的博客">
 <meta property="og:description" content="打开简信我的首页，亮闪闪的几个字6天之前，是的，距离我的上一篇文章已经6天，原计划这篇文章会是在周一晚上的时候发的，可是最近也有点突发事件，打乱我原有的计划。咳！反正就是瞎忙，不过我还是会坚持用心写好每一篇文章。 记得上一篇讲的是用RotateDrawable实现网易云音乐唱片机效果，而今天我要讲的是如何用WindowManager去实现一个悬浮窗迷你音乐盒。，由于WindowManager这一">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/430632-3cf36e1a163cb3f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-06-21T08:38:20.880Z">
+<meta property="og:updated_time" content="2017-06-21T09:03:50.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用WindowManager实现炫酷的悬浮迷你音乐盒（上）">
 <meta name="twitter:description" content="打开简信我的首页，亮闪闪的几个字6天之前，是的，距离我的上一篇文章已经6天，原计划这篇文章会是在周一晚上的时候发的，可是最近也有点突发事件，打乱我原有的计划。咳！反正就是瞎忙，不过我还是会坚持用心写好每一篇文章。 记得上一篇讲的是用RotateDrawable实现网易云音乐唱片机效果，而今天我要讲的是如何用WindowManager去实现一个悬浮窗迷你音乐盒。，由于WindowManager这一">
@@ -132,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/android/article/像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（上）.html"/>
+  <link rel="canonical" href="http://yoursite.com/android/article/cj46rs2c90005g4ozqv723dwr.html"/>
 
 
 
@@ -277,7 +277,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/android/article/像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（上）.html">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/android/article/cj46rs2c90005g4ozqv723dwr.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CoderMario">
@@ -365,7 +365,7 @@
       
         <p><img src="http://upload-images.jianshu.io/upload_images/430632-3cf36e1a163cb3f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="说到悬浮窗大家一定会想到这俩货"></p>
 <p>打开简信我的首页，亮闪闪的几个字<strong>6天之前</strong>，是的，距离我的上一篇文章已经6天，原计划这篇文章会是在周一晚上的时候发的，可是最近也有点突发事件，打乱我原有的计划。咳！反正就是瞎忙，不过我还是会坚持用心写好每一篇文章。</p>
-<p>记得上一篇讲的是<a href="https://codermario.github.io/android.article/用RotateDrawable实现网易云音乐唱片机效果" target="_blank" rel="external">用RotateDrawable实现网易云音乐唱片机效果</a>，而今天我要讲的是如何用WindowManager去实现一个悬浮窗迷你音乐盒。，由于WindowManager这一块内容会比较多，所以我决定分成上下两篇来写这一块，这一篇主要介绍WindowManager和它的一些属性，可能会有些枯燥，下一篇我会具体去写悬浮迷你音乐盒的实现。</p>
+<p>记得上一篇讲的是<a href="/android/article/cj46rs2c90005g4ozqv723dwr.html">用RotateDrawable实现网易云音乐唱片机效果</a>，而今天我要讲的是如何用WindowManager去实现一个悬浮窗迷你音乐盒。，由于WindowManager这一块内容会比较多，所以我决定分成上下两篇来写这一块，这一篇主要介绍WindowManager和它的一些属性，可能会有些枯燥，下一篇我会具体去写悬浮迷你音乐盒的实现。</p>
 <h4 id="WindowManager"><a href="#WindowManager" class="headerlink" title="WindowManager"></a>WindowManager</h4><p>在Android应用开发中，其实整个Android的窗口机制是基于一个叫做WindowManager的一个系统服务接口，WindowManager可以添加view到屏幕，也可以从屏幕删除view。它面向的对象一端是屏幕，另一端就是View，其实就连我们常用的Activity和Diolog的底层实现都是通过WindowManager， WindowManager是全局的，整个系统就只用一个Windowmanager服务，我们需要向系统获取服务才能调用它，而它就是显示View的最底层。</p>
 <p>其实WindowManager用起来非常方便，就三个方法：</p>
 <h6 id="添加View"><a href="#添加View" class="headerlink" title="添加View"></a>添加View</h6><pre><code>addView(View view, WindowManager.LayoutParams params);
@@ -454,7 +454,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/android/article/用RotateDrawable实现网易云音乐唱片机效果.html" rel="next" title="用RotateDrawable实现网易云音乐唱片机效果">
+              <a href="/android/article/cj46rs2cq000fg4oz80cwb447.html" rel="next" title="用RotateDrawable实现网易云音乐唱片机效果">
                 <i class="fa fa-chevron-left"></i> 用RotateDrawable实现网易云音乐唱片机效果
               </a>
             
@@ -464,7 +464,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/android/article/像360悬浮窗那样，用WindowManager实现炫酷的悬浮迷你音乐盒（下）.html" rel="prev" title="用WindowManager实现炫酷的悬浮迷你音乐盒（下）">
+              <a href="/android/article/cj46rs2ch0008g4ozn0nfm5ro.html" rel="prev" title="用WindowManager实现炫酷的悬浮迷你音乐盒（下）">
                 用WindowManager实现炫酷的悬浮迷你音乐盒（下） <i class="fa fa-chevron-right"></i>
               </a>
             
